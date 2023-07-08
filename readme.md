@@ -25,7 +25,5 @@ yolo - you only look once algo
 - postgres
 - sqlc
 - makefile
-2 - Application logging
-
 
 
