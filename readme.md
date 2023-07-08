@@ -1,22 +1,31 @@
 # Full Stack Web Development With Go
+
+```
+POC 
+
+This research will form the backend for my ai project  
+
+go get github.com/aws/aws-sdk-go-v2/service/rekognition
+
+I will assess the accuracy of the video stream camera feed versus the uploaded images for the user
+at at a certain level of confidence allow the user to log in. 
+
+A group of people under a user should be allowed to login if their video feed passes.
+
+User images stored in the db. 
+
+End points to allow other apps to use should be exposed  
+
+yolo - you only look once algo
+
+```
+
+1- Creating a backend
 - docker
 - postgres
 - sqlc
 - makefile
-
-```
-docker run --name test-postgres \
--e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+2 - Application logging
 
 
-```
-```
-docker exec -it test-postgres psql -h localhost -p 5432 -U postgres -d postgres
-\i /usr/share/chapter1/db/schema.sql 
-(run schema code query in postegres)
-\dt gowebapp.* 
-sqlc generate 
-
-
-```
 

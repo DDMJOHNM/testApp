@@ -5,12 +5,25 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
 	test "test/gen"
 
+	"github.com/kataras/golog"
 	_ "github.com/lib/pq"
 )
 
+func configureLocal() {
+	file, err := os.OpenFile("logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	if err != nil {
+		log.Fatalln("Error writing log file: ", err)
+	}
+	golog.SetLevelOutput("Info", file)
+
+}
+
 func main() {
+
+	configureLocal()
 
 	dbURI := fmt.Sprintf("postgres://%s:%s@%s:%d/%s?sslmode=disable",
 		GetAsString("DB_USER", "postgres"),
@@ -73,6 +86,6 @@ func main() {
 
 	for _, usr := range u {
 		fmt.Println(fmt.Sprintf("Name : %s, ID : %d", usr.Name, usr.UserID))
+		golog.Info("Done!, Golog Message", usr.Name)
 	}
-
 }
